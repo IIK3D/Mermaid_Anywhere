@@ -3,8 +3,13 @@
   "displayName": "Mermaid Anywhere",
   "description": "Preview Mermaid diagrams embedded in comments of any file type",
   "version": "0.1.0",
-  "publisher": "mermaid-anywhere",
+  "author": "Issanou",
+  "publisher": "issanou",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IIK3D/Mermaid_Anywhere.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -57,7 +62,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run build",
-    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --sourcemap",
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --sourcemap && cp node_modules/mermaid/dist/mermaid.min.js dist/mermaid.min.js",
     "watch": "npm run build -- --watch",
     "package": "vsce package"
   },

@@ -64,12 +64,28 @@ Unknown languages trigger a fallback that tries all prefixes automatically.
 | `mermaid-anywhere.theme` | `auto` | Diagram theme: `auto` (follows VSCode), `light`, `dark` |
 | `mermaid-anywhere.maxWidth` | `100%` | Maximum diagram width |
 
-## Install (development)
+## Install
+
+### From release (recommended)
+
+1. Download the latest `.vsix` file from [Releases](https://github.com/IIK3D/Mermaid_Anywhere/releases)
+2. In VSCode: `Ctrl+Shift+P` > **Extensions: Install from VSIX...**
+3. Select the downloaded `.vsix` file
+4. Reload VSCode
+
+Or from the command line:
 
 ```sh
-git clone <repo>
-cd MermadAnyWhere
+code --install-extension mermaid-anywhere-0.1.0.vsix
+```
+
+### From source (development)
+
+```sh
+git clone https://github.com/IIK3D/Mermaid_Anywhere.git
+cd Mermaid_Anywhere
 npm install
+npm run build
 ```
 
 Press `F5` in VSCode to launch the Extension Development Host.

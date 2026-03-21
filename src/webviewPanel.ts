@@ -124,8 +124,8 @@ function getWebviewContent(
 ): string {
   const nonce = crypto.randomBytes(16).toString('hex');
 
-  // Load mermaid.min.js from node_modules and inline it
-  const mermaidJsPath = path.join(context.extensionPath, 'node_modules', 'mermaid', 'dist', 'mermaid.min.js');
+  // Load mermaid.min.js bundled in dist/
+  const mermaidJsPath = path.join(context.extensionPath, 'dist', 'mermaid.min.js');
   const mermaidJsContent = fs.readFileSync(mermaidJsPath, 'utf-8');
 
   // Encode mermaid diagram content as base64 to avoid escaping issues
