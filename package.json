@@ -1,0 +1,72 @@
+{
+  "name": "mermaid-anywhere",
+  "displayName": "Mermaid Anywhere",
+  "description": "Preview Mermaid diagrams embedded in comments of any file type",
+  "version": "0.1.0",
+  "publisher": "mermaid-anywhere",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mermaid-anywhere.preview",
+        "title": "Mermaid Anywhere: Preview Diagram"
+      },
+      {
+        "command": "mermaid-anywhere.closePreview",
+        "title": "Mermaid Anywhere: Close Preview"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "mermaid-anywhere.closePreview",
+        "key": "escape",
+        "when": "mermaidAnywherePreviewVisible"
+      }
+    ],
+    "configuration": {
+      "title": "Mermaid Anywhere",
+      "properties": {
+        "mermaid-anywhere.theme": {
+          "type": "string",
+          "default": "auto",
+          "enum": [
+            "auto",
+            "light",
+            "dark"
+          ],
+          "description": "Theme for Mermaid diagram rendering. 'auto' follows VSCode theme."
+        },
+        "mermaid-anywhere.maxWidth": {
+          "type": "string",
+          "default": "100%",
+          "description": "Maximum width of the rendered diagram (e.g. '100%', '800px')."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --sourcemap",
+    "watch": "npm run build -- --watch",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "mermaid": "^11.13.0"
+  }
+}
