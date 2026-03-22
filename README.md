@@ -29,6 +29,18 @@ function handleRequest(req: Request) {
 
 A **CodeLens "Preview Diagram"** appears above the block. Click it — the diagram renders fullscreen in the same tab. Press **Escape** to go back to the code.
 
+### Architecture
+
+```mermaid
+graph TD
+  A[Source file with @mermaid block] --> B[MermaidDetector]
+  B --> C[CodeLens Provider]
+  C --> D[Click Preview]
+  D --> E[Webview Panel - fullscreen]
+  E --> F[mermaid.js renders SVG]
+  E --> G[Escape - back to code]
+```
+
 ## Supported languages
 
 Works in any file type. Comment prefixes are detected automatically:
